@@ -1,0 +1,26 @@
+.res-grid-cont {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+}
+
+.text-restricate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.form-check-input:checked + .form-check-label {
+  text-decoration: line-through;
+}
+
+.grid-min {
+  min-width: 450px;
+}
+
+@media only screen and (max-width: 1020px) {
+  .grid-min {
+    min-width: 0;
+  }
+}

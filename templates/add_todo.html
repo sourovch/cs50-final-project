@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Todo{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <div class="p-5 d-flex align-items-center justify-content-center flex-column">
+        <div class="display-6 mb-4 text-center">Add Todo</div>
+        <form action="/todos/add" method="post" autocomplete="off"
+            class="d-flex align-items-center justify-content-center flex-column">
+            <div class="form-floating mb-3 w-100">
+                <input type="text" class="form-control" name="todo" id="floatingInput" placeholder="ToDo">
+                <label for="floatingInput">ToDo</label>
+            </div>
+            <button type="submit" class="btn btn-primary fs-5 mt-3 px-4">Add Todos</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

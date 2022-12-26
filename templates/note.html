@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Note{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <div class="bg-info rounded p-3 text-light fs-5 my-3 text-center">Note No.{{note['id']}} Written By
+        {{user['username']}}</div>
+    <div class="display-4  mb-3">{{note['title']}}</div>
+    <div class="text-secondary fs-6 mb-3">Written at {{note['date']}}</div>
+    <p class="lead">{{note['note']}}</p>
+</div>
+{% endblock %}

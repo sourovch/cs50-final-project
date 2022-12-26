@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}ToDos{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <div class="pt-5 d-flex align-items-center justify-content-center flex-column">
+        <div class="display-6 mb-4 text-center">Your ToDos</div>
+        <ul class="list-group fs-5 mt-1" style="max-width: 300px;">
+            <a class="btn btn-primary mb-2" type="button" href="todos/add">Add ToDo</a>
+            {% for todo in todos %}
+            <li class="list-group-item d-flex align-items-center">
+                {% if todo['is_checked'] == 1 %}
+                <input class="form-check-input me-2" style="min-width: 5px;" type="checkbox" value="" id="firstCheckbox"
+                    checked data-id="{{todo.id}}">
+                {% else %}
+                <input class="form-check-input me-2" style="min-width: 5px;" type="checkbox" value="" id="firstCheckbox"
+                    data-id="{{todo.id}}">
+                {% endif %}
+                <label class="form-check-label me-3" for="firstCheckbox">{{todo.todo}}</label>
+                <a href="todos/delete/{{todo.id}}" class="ms-auto fs-6"><i class="fa-solid fa-trash"></i></a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Notes{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <div class="p-5 d-flex align-items-center justify-content-center flex-column">
+        <div class="display-6 mb-4 text-center">Add Note</div>
+        <form action="/notes/add" method="post" autocomplete="off"
+            class="d-flex align-items-center justify-content-center flex-column">
+            <div class="form-floating mb-3 w-100">
+                <input type="text" class="form-control" name="title" id="floatingInput" placeholder="Title">
+                <label for="floatingInput">Title</label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" style="resize: none;height: 130px;" placeholder="Leave your note here"
+                    id="floatingTextarea" name="note-body"></textarea>
+                <label for="floatingTextarea">Note</label>
+            </div>
+            <button type="submit" class="btn btn-primary fs-5 mt-3 px-4">Add Note</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

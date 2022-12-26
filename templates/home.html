@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <div class="display-3 text-center my-5">Keep Your Notes</div>
+    <div class="res-grid-cont" style="gap: 40px;">
+        <div class="grid-min">
+            <div class="d-flex mb-3 align-items-end">
+                <div class="fs-6 text-secondary fw-bold">RECENT NOTES:</div>
+                <a href="/notes" class="btn btn-primary ms-auto">Checkout All</a>
+            </div>
+            <div class="res-grid-cont">
+                {% if notes|length > 0 %}
+                {% for note in notes %}
+                <div class="card mx-auto w-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-restricate">{{ note.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ note.date }}</h6>
+                        <p class="card-text text-restricate">{{ note.note }}</p>
+                    </div>
+                </div>
+                {% endfor%}
+                {% else %}
+                <div class="fs-6 text-center text-secondary">To Add Notes Checkout Notes Section</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="grid-min">
+            <div class="d-flex mb-3 align-items-end">
+                <div class="fs-6 text-secondary fw-bold">RECENT TODOS:</div>
+                <a href="/todos" class="btn btn-primary ms-auto">Checkout All</a>
+            </div>
+            <ul class="list-group">
+                {% if todos|length > 0 %}
+                {% for todo in todos %}
+                {% if todo['is_checked'] == 1 %}
+                <li class="list-group-item my-1 text-decoration-line-through">{{todo.todo}}</li>
+                {% else %}
+                <li class="list-group-item my-1">{{todo.todo}}</li>
+                {% endif %}
+                {% endfor%}
+                {% else %}
+                <div class="fs-6 text-center text-secondary">To Add ToDos Checkout ToDos Section</div>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
